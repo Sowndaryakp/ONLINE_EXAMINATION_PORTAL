@@ -84,6 +84,9 @@ public class StudentServiceImpl implements StudentService {
             existingStudent.setSemester(student.getSemester());
             existingStudent.setSpecialization(student.getSpecialization());
             existingStudent.setEmail(student.getEmail());
+            // Hash the password before setting it
+            String hashedPassword = passwordEncoder.encode(student.getPassword());
+            existingStudent.setPassword(hashedPassword);
             return studentRepository.save(existingStudent);
         } else {
             return null; // Return null if the student with the given ID does not exist

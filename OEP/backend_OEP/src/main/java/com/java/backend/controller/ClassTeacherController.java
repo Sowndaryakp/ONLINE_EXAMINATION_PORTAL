@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("class-teacher")
+//@RestController
+//@RequestMapping("class-teacher")
 public class ClassTeacherController {
 
-    @Autowired
-    private ClassTeacherService classTeacherService;
-
-    @PostMapping("/approve")
-    public ClassTeacher approveClassTeacher(@RequestBody ClassTeacher classTeacher) {
-        return classTeacherService.approveClassTeacher(classTeacher);
-    }
+//    @Autowired
+//    private ClassTeacherService classTeacherService;
+//
+//    @PostMapping("/approve")
+//    public ClassTeacher approveClassTeacher(@RequestBody ClassTeacher classTeacher) {
+//        return classTeacherService.approveClassTeacher(classTeacher);
+//    }
 }
