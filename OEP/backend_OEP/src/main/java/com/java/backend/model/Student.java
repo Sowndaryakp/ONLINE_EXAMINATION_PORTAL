@@ -28,13 +28,12 @@ public class Student {
     private String password;
 
     @Column(nullable = false)
-    private boolean approved;
+    private boolean registrationStatus;
 
-    // Default constructor
     public Student() {
     }
 
-    public Student(Long id, String name, String usn, int semester, String specialization, String email, String password, boolean approved) {
+    public Student(Long id, String name, String usn, int semester, String specialization, String email, String password, boolean registrationStatus) {
         this.id = id;
         this.name = name;
         this.usn = usn;
@@ -42,7 +41,7 @@ public class Student {
         this.specialization = specialization;
         this.email = email;
         this.password = password;
-        this.approved = approved;
+        this.registrationStatus = registrationStatus;
     }
 
     public Long getId() {
@@ -101,11 +100,11 @@ public class Student {
         this.password = password;
     }
 
-    public boolean isApproved() {
-        return approved;
+    public boolean isRegistrationStatus() {
+        return registrationStatus;
     }
 
-    public void setApproved(boolean approved) {
-        this.approved = approved;
+    public void setRegistrationStatus(boolean registrationStatus) {
+        this.registrationStatus = registrationStatus;
     }
 }

@@ -4,5 +4,5 @@ import com.java.backend.model.ClassTeacher;
 
 
 public interface ClassTeacherService {
-    ClassTeacher approveClassTeacher(ClassTeacher classTeacher);
+//    ClassTeacher approveClassTeacher(ClassTeacher classTeacher);
 }
