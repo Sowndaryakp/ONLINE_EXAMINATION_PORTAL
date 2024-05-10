@@ -11,6 +11,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -63,6 +64,41 @@ public class StudentServiceImpl implements StudentService {
             }
         }
         return null; // Return null if email or password doesn't match
+    }
+
+    @Override
+    public Student getStudentById(Long id) {
+        // Implement logic to retrieve a student by ID from the repository
+        Optional<Student> optionalStudent = studentRepository.findById(id);
+        return optionalStudent.orElse(null);
+    }
+
+    @Override
+    public Student updateStudent(Long id, Student student) {
+        // Implement logic to update a student's information by ID in the repository
+        Optional<Student> optionalStudent = studentRepository.findById(id);
+        if (optionalStudent.isPresent()) {
+            Student existingStudent = optionalStudent.get();
+            existingStudent.setName(student.getName());
+            existingStudent.setUsn(student.getUsn());
+            existingStudent.setSemester(student.getSemester());
+            existingStudent.setSpecialization(student.getSpecialization());
+            existingStudent.setEmail(student.getEmail());
+            return studentRepository.save(existingStudent);
+        } else {
+            return null; // Return null if the student with the given ID does not exist
+        }
+    }
+
+    @Override
+    public boolean deleteStudent(Long id) {
+        // Implement logic to delete a student by ID from the repository
+        if (studentRepository.existsById(id)) {
+            studentRepository.deleteById(id);
+            return true; // Return true if the student was successfully deleted
+        } else {
+            return false; // Return false if the student with the given ID does not exist
+        }
     }
 
 }
